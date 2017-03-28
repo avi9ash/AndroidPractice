@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 import com.example.android.justjava.R;
 
+import static android.R.id.message;
+
 /**
  * This app displays an order form to order coffee.
  */
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
         display(q);
         displayPrice(q * 5);
+        String priceMessage="Total = "+ (q*5) ;
+        displayMessage(priceMessage);
     }
 
     /**
@@ -48,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
     {
         TextView priceTextView=(TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+    private void displayMessage(String message)
+    {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message + "\n Thank you");
+
+
     }
 
     public void decrement(View view)
